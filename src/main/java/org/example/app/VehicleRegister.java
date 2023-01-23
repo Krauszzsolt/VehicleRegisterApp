@@ -30,7 +30,8 @@ public class VehicleRegister implements VehicleRegisterSaveAPI, VehicleRegisterL
     }
 
     @Override
-    public void loadVehicle(String registrationNumber) {
+    public void loadVehicle(String r) {
+        String registrationNumber = vehicleParser.JsonToRegistrationNumber(r);
         Vehicle vehicle =  persistenceStorage.getVehicle(registrationNumber);
         vehicleValidator.validateEntity(vehicle);
         String vehicleJson = vehicleParser.EntityToString(vehicle);

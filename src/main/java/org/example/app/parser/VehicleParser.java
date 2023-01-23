@@ -38,4 +38,24 @@ public class VehicleParser {
         }
         return new Vehicle(model, registrationNumber, make, numberOfSeats, vehicleType);
     }
+    public String RegistrationNumberToJson(String r) {
+        JSONObject registrationNumber = new JSONObject();
+        try {
+            registrationNumber.put("registrationNumber", r);
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+        return registrationNumber.toString();
+    }
+
+    public String JsonToRegistrationNumber(String r) {
+        JSONObject registrationNumber;
+        try {
+            registrationNumber = new JSONObject(r);
+            return registrationNumber.getString("registrationNumber");
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }
