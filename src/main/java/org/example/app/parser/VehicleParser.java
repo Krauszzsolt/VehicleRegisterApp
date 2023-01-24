@@ -13,6 +13,9 @@ public class VehicleParser {
             vehicle.put("make", v.make);
             vehicle.put("numberOfSeats", v.numberOfSeats);
             vehicle.put("vehicleType",v.vehicleType);
+            vehicle.put("vehicleType",v.vehicleType);
+            vehicle.put("motorEmissionType",v.motorEmissionType);
+
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
@@ -36,17 +39,9 @@ public class VehicleParser {
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
-        return new Vehicle(model, registrationNumber, make, numberOfSeats, vehicleType);
+        return new Vehicle(model, registrationNumber, make, numberOfSeats, vehicleType, "Test");
     }
-    public String RegistrationNumberToJson(String r) {
-        JSONObject registrationNumber = new JSONObject();
-        try {
-            registrationNumber.put("registrationNumber", r);
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
-        return registrationNumber.toString();
-    }
+
 
     public String JsonToRegistrationNumber(String r) {
         JSONObject registrationNumber;
